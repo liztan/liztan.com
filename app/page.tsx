@@ -41,7 +41,7 @@ export default function Home() {
             {/* Introduction */}
             <div className="mt-24 mb-36">
               <p className="text-xl md:text-2xl leading-relaxed font-light tracking-wide">
-                TESTZZZZ Hi, I'm Liz. Product designer at{" "}
+                lalalala Hi, I'm Liz. Product designer at{" "}
                 <Link href="https://squareup.com" className="text-primary hover:underline" target="_blank">
                   Square
                 </Link>{" "}working on Growth. I solve problems that help our products reach more people.
