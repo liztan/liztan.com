@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-black">
       <div className="container mx-auto px-4 md:px-8 py-8">
         <div className="grid grid-cols-12 gap-4">
           {/* Vertical LIZ TAN - desktop only */}
