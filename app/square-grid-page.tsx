@@ -1,34 +1,28 @@
 import Link from "next/link"
-import { ProjectGrid2x2Option1 } from "@/components/project-grid-2x2-option1"
+import { ProjectGridSquare } from "@/components/project-grid-square"
 import { Footer } from "@/components/layout/footer"
-import { TypewriterHeading } from "@/components/heading-conceptual"
 
-export default function Home() {
+export default function SquareGridPage() {
   // Sample project data - reduced to 3 projects
   const projects = [
     {
       id: "project-01",
       number: "01",
-      title: "Spatial Composition",
-      description: "A study in negative space and user interaction",
+      title: "Slack",
+      description:
+        "Enhanced Slack's checkout experience by leveraging data-driven insights to optimize the purchase process.",
     },
     {
       id: "project-02",
       number: "02",
-      title: "Systematic Interface",
-      description: "Exploring repetition and variation in UI elements",
+      title: "Project Two",
+      description: "A brief description of another significant project you've worked on.",
     },
     {
       id: "project-03",
       number: "03",
-      title: "Linear Progression",
-      description: "Translating movement into digital experience",
-    },
-    {
-      id: "project-04",
-      number: "04",
-      title: "Modular Design",
-      description: "Creating flexible systems for complex information",
+      title: "Project Three",
+      description: "A brief description of another significant project you've worked on.",
     },
   ]
 
@@ -69,17 +63,26 @@ export default function Home() {
               <div className="border-b border-border mt-8"></div>
             </header>
 
-            {/* Artistic Heading Section */}
-            <TypewriterHeading />
+            {/* Introduction */}
+            <div className="mt-24 mb-36">
+              <p className="text-xl md:text-2xl leading-relaxed font-light tracking-wide">
+                Hello, I'm Liz, a strategic thinker who loves solving big problems and sweating small details. Today, I
+                design at{" "}
+                <Link href="https://squareup.com" className="text-primary hover:underline" target="_blank">
+                  Square
+                </Link>{" "}
+                - working to help businesses connect with their customers.
+              </p>
+            </div>
 
             {/* Work Section */}
             <div id="work" className="mb-8">
               <h2 className="text-xs font-mono tracking-widest mb-16">SELECTED WORK</h2>
             </div>
 
-            {/* Project Grid with 3 projects + About Me section in a 2x2 layout */}
+            {/* Project Grid with 3 projects + About Me section */}
             <div className="mb-36">
-              <ProjectGrid2x2Option1 projects={projects} />
+              <ProjectGridSquare projects={projects} />
             </div>
 
             {/* Footer */}

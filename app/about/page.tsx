@@ -43,7 +43,7 @@ export default function About() {
 
             {/* About content */}
             <div className="mt-24 mb-16">
-              <h2 className="text-3xl md:text-4xl leading-relaxed font-light mb-16">About</h2>
+              <h2 className="text-3xl md:text-4xl leading-relaxed font-mono mb-16">About</h2>
 
               <div className="flex flex-col md:flex-row gap-16 mb-24">
                 <div className="md:w-1/2">
@@ -135,7 +135,7 @@ function WriterSection() {
       <div className="space-y-8">
         {articles.map((article, index) => (
           <div key={index}>
-            <Link href={article.url} target="_blank" className="text-primary hover:underline">
+            <Link href={article.url} target="_blank" className="text-primary hover:underline font-mono">
               {article.title}
             </Link>
             <p className="text-muted-foreground leading-relaxed font-light tracking-wide mt-1">{article.description}</p>
@@ -191,4 +191,3 @@ function Footer() {
     </div>
   )
 }
-

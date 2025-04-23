@@ -25,4 +25,3 @@ export function ProjectItem({ number, title, description, imageUrl }: ProjectIte
     </div>
   )
 }
-

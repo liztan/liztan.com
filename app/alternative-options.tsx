@@ -57,7 +57,7 @@ export function Option3() {
 
           {/* Content would be in grid layout */}
         </div>
-      </main>
+      </div>
     </div>
   )
 }
@@ -97,4 +97,3 @@ export function Option4() {
     </div>
   )
 }
-
