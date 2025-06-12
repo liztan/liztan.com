@@ -1,88 +1,63 @@
+"use client"
+
+import { useEffect } from "react"
 import Link from "next/link"
-import { ProjectGrid2x2Option1 } from "@/components/project-grid-2x2-option1"
 import { Footer } from "@/components/layout/footer"
-import { TypewriterHeading } from "@/components/heading-conceptual"
 
 export default function Home() {
-  // Sample project data - reduced to 3 projects
-  const projects = [
-    {
-      id: "project-01",
-      number: "01",
-      title: "Spatial Composition",
-      description: "A study in negative space and user interaction",
-    },
-    {
-      id: "project-02",
-      number: "02",
-      title: "Systematic Interface",
-      description: "Exploring repetition and variation in UI elements",
-    },
-    {
-      id: "project-03",
-      number: "03",
-      title: "Linear Progression",
-      description: "Translating movement into digital experience",
-    },
-    {
-      id: "project-04",
-      number: "04",
-      title: "Modular Design",
-      description: "Creating flexible systems for complex information",
-    },
-  ]
+  // Scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 md:px-8 py-8">
-        <div className="grid grid-cols-12 gap-4">
+      <div className="container mx-auto px-4 md:px-8 py-8 min-h-screen flex flex-col">
+        <div className="grid grid-cols-12 gap-4 flex-1">
           {/* Vertical LIZ TAN - desktop only */}
           <div className="hidden md:block col-span-1 relative">
-            <div className="fixed top-1/2 transform -translate-y-1/2 text-sm font-mono tracking-widest writing-vertical -rotate-180">
+            <Link
+              href="/"
+              className="fixed top-1/2 transform -translate-y-1/2 text-sm font-mono tracking-widest writing-vertical -rotate-180 hover:text-primary transition-colors"
+              onClick={() => window.scrollTo(0, 0)}
+            >
               LIZ TAN
-            </div>
+            </Link>
           </div>
 
           {/* Main content */}
-          <div className="col-span-12 md:col-span-10 md:col-start-2 px-4 md:px-0">
-            {/* Header */}
+          <div className="col-span-12 md:col-span-10 md:col-start-2 px-4 md:px-0 flex flex-col min-h-full">
+            {/* Header - clean and minimal */}
             <header className="mb-8">
               <div className="flex justify-between items-center">
                 {/* LIZ TAN on mobile */}
                 <div className="block md:hidden text-sm font-mono tracking-widest whitespace-nowrap">
-                  <Link href="/" className="hover:text-primary transition-colors">
+                  <Link href="/" className="hover:text-primary transition-colors" onClick={() => window.scrollTo(0, 0)}>
                     LIZ TAN
                   </Link>
                 </div>
 
-                <div className="flex justify-end w-full">
-                  <nav className="flex gap-8 font-mono">
-                    <Link href="#work" className="text-xs tracking-widest hover:text-primary transition-colors">
-                      WORK
-                    </Link>
-                    <Link href="/about" className="text-xs tracking-widest hover:text-primary transition-colors">
-                      ABOUT
-                    </Link>
-                  </nav>
-                </div>
+                {/* Empty div to maintain layout */}
+                <div className="flex-1"></div>
               </div>
-              <div className="border-b border-border mt-8"></div>
             </header>
 
-            {/* Artistic Heading Section */}
-            <TypewriterHeading />
+            {/* Static Heading Section - now at the top */}
+            <div className="mt-9 mb-4">
+              <div className="font-mono leading-relaxed text-lg md:text-xl lg:text-2xl space-y-1 mb-6">
+                <p>CURIOUS DESIGNER</p>
+                <p>INTENTIONAL PROBLEM SOLVER</p>
+                <p className="text-primary">CURRENTLY AT SQUARE</p>
+              </div>
 
-            {/* Work Section */}
-            <div id="work" className="mb-8">
-              <h2 className="text-xs font-mono tracking-widest mb-16">SELECTED WORK</h2>
+              {/* Work note below the heading - mono font in muted grey */}
+              <p className="font-mono text-sm tracking-wide text-muted-foreground">Work available upon request</p>
             </div>
 
-            {/* Project Grid with 3 projects + About Me section in a 2x2 layout */}
-            <div className="mb-36">
-              <ProjectGrid2x2Option1 projects={projects} />
-            </div>
+            {/* Empty flex space to push footer down */}
+            <div className="flex-1"></div>
 
-            {/* Footer */}
+            {/* Footer anchored to bottom */}
             <Footer />
           </div>
         </div>

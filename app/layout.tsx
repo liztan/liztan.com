@@ -21,6 +21,10 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Liz Tan - Designer",
   description: "Strategic designer helping businesses connect with their customers",
+  robots: {
+    index: true,
+    follow: true,
+  },
     generator: 'v0.dev'
 }
 
