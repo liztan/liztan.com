@@ -9,7 +9,7 @@ export function Footer() {
             ABOUT
           </Link>
           <Link
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/elletea"
             target="_blank"
             className="text-xs font-mono tracking-widest hover:text-primary transition-colors"
           >

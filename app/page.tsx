@@ -42,8 +42,8 @@ export default function Home() {
               </div>
             </header>
 
-            {/* Static Heading Section - now at the top */}
-            <div className="mt-9 mb-4">
+            {/* Static Heading Section - now aligned with about page */}
+            <div className="mt-24 mb-4">
               <div className="font-mono leading-relaxed text-lg md:text-xl lg:text-2xl space-y-1 mb-6">
                 <p>CURIOUS DESIGNER</p>
                 <p>INTENTIONAL PROBLEM SOLVER</p>

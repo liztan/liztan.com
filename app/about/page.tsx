@@ -13,8 +13,8 @@ export default function About() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 md:px-8 py-8">
-        <div className="grid grid-cols-12 gap-4">
+      <div className="container mx-auto px-4 md:px-8 py-8 min-h-screen flex flex-col">
+        <div className="grid grid-cols-12 gap-4 flex-1">
           {/* Vertical LIZ TAN - desktop only */}
           <div className="hidden md:block col-span-1 relative">
             <Link
@@ -27,7 +27,7 @@ export default function About() {
           </div>
 
           {/* Main content */}
-          <div className="col-span-12 md:col-span-10 md:col-start-2 px-4 md:px-0">
+          <div className="col-span-12 md:col-span-10 md:col-start-2 px-4 md:px-0 flex flex-col min-h-full">
             {/* Header */}
             <header className="mb-8">
               <div className="flex justify-between items-center">
@@ -60,26 +60,9 @@ export default function About() {
                     </p>
 
                     <p>
-                      I believe in giving users a{" "}
-                      <Link
-                        href="https://postlight.com/insights/giving-the-user-a-seat-at-the-table"
-                        className="text-primary hover:underline"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        seat at the table
-                      </Link>{" "}
-                      and crafting cohesive experiences that consider the entire journey—including why{" "}
-                      <Link
-                        href="https://www.fastcompany.com/90608538/why-endings-are-a-product-design-problem-worth-solving"
-                        className="text-primary hover:underline"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        endings are a product design problem worth solving
-                      </Link>
-                      . When not designing, you'll find me making mega-totes, traveling, or spending time with my two
-                      little ones.
+                      I believe in giving users a seat at the table and crafting cohesive experiences that consider the
+                      entire journey—including why endings are a product design problem worth solving. When not
+                      designing, you'll find me making mega-totes, traveling, or spending time with my two little ones.
                     </p>
 
                     <p className="pt-4">
@@ -104,7 +87,10 @@ export default function About() {
               </div>
             </div>
 
-            {/* Footer */}
+            {/* Empty flex space to push footer down */}
+            <div className="flex-1"></div>
+
+            {/* Footer anchored to bottom */}
             <Footer />
           </div>
         </div>
