@@ -61,13 +61,22 @@ export default function About() {
 
                     <p>
                       I believe in giving users a seat at the table and crafting cohesive experiences that consider the
-                      entire journey—including why endings are a product design problem worth solving. When not
-                      designing, you'll find me making mega-totes, traveling, or spending time with my two little ones.
+                      entire journey—including why{" "}
+                      <Link
+                        href="https://www.fastcompany.com/90611096/why-you-should-design-for-breakups-and-let-your-users-go"
+                        className="text-primary hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        endings are a product design problem worth solving
+                      </Link>
+                      . When not designing, you'll find me making mega-totes, traveling, or spending time with my two
+                      little ones.
                     </p>
 
                     <p className="pt-4">
                       <Link href="mailto:hi@liztan.com" className="text-primary hover:underline font-mono">
-                        hi@liztan.com
+                        Say hi!
                       </Link>
                     </p>
                   </div>
