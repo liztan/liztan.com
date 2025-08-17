@@ -70,8 +70,20 @@ export default function About() {
                       >
                         endings are a product design problem worth solving
                       </Link>
-                      . When not designing, you'll find me making mega-totes, traveling, or spending time with my two
-                      little ones.
+                      .
+                    </p>
+
+                    <p>
+                      When not designing, you'll find me making mega-totes, traveling, or spending time with my{" "}
+                      <Link
+                        href="https://elihorne.com"
+                        className="text-primary hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        husband
+                      </Link>{" "}
+                      and our two little ones.
                     </p>
 
                     <p className="pt-4">
