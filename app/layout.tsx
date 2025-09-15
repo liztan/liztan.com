@@ -4,6 +4,8 @@ import { Space_Mono, Manrope } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { Analytics } from "@vercel/analytics/react"
+import { Suspense } from "react"
 
 // Space Mono for headings and accents
 const spaceMono = Space_Mono({
@@ -37,8 +39,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${spaceMono.variable} ${manrope.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-          {children}
+          <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
           <ThemeToggle />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

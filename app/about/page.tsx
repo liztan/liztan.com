@@ -12,9 +12,9 @@ export default function About() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 md:px-8 py-8 min-h-screen flex flex-col">
-        <div className="grid grid-cols-12 gap-4 flex-1">
+    <div className="min-h-screen bg-background flex flex-col">
+      <div className="flex-1 container mx-auto px-4 md:px-8 py-8">
+        <div className="grid grid-cols-12 gap-4">
           {/* Vertical LIZ TAN - desktop only */}
           <div className="hidden md:block col-span-1 relative">
             <Link
@@ -27,7 +27,7 @@ export default function About() {
           </div>
 
           {/* Main content */}
-          <div className="col-span-12 md:col-span-10 md:col-start-2 px-4 md:px-0 flex flex-col min-h-full">
+          <div className="col-span-12 md:col-span-10 md:col-start-2 px-4 md:px-0">
             {/* Header */}
             <header className="mb-8">
               <div className="flex justify-between items-center">
@@ -38,7 +38,7 @@ export default function About() {
                   </Link>
                 </div>
 
-                {/* Empty div to maintain layout */}
+                {/* Empty div to maintain spacing */}
                 <div className="flex-1"></div>
               </div>
             </header>
@@ -46,17 +46,31 @@ export default function About() {
             {/* About content */}
             <div className="mt-24 mb-36">
               {/* About Me Section */}
-              <div className="flex flex-col md:flex-row gap-16">
-                <div className="md:w-3/5">
+              <div className="flex flex-col md:flex-row gap-16 mb-24">
+                <div className="md:w-2/5 order-1 md:order-2">
+                  <div className="aspect-[3/4] relative md:sticky md:top-24 overflow-hidden">
+                    <Image
+                      src="/images/liz-photo-animated.gif"
+                      alt="Liz Tan in black and white photo wearing sunglasses"
+                      fill
+                      className="object-cover"
+                      priority
+                      unoptimized
+                    />
+                  </div>
+                </div>
+
+                <div className="md:w-3/5 order-2 md:order-1">
                   <h2 className="text-xs font-mono tracking-widest mb-10">ABOUT ME</h2>
 
-                  <div className="space-y-6 text-muted-foreground leading-relaxed font-light tracking-wide">
+                  <div className="space-y-6 text-foreground leading-relaxed font-light tracking-wide">
                     <p>Liz here, Brooklyn-based designer.</p>
 
                     <p>
                       Currently at Square, I design for the Growth team, helping people discover and adopt our products.
-                      Previously, I've reimagined checkout flows at Slack, built design systems at Equinox, and worked
-                      with clients like the Obama Foundation, The New York Post, Mailchimp, and Goldman Sachs.
+                      Prior to Growth, I worked on Square Marketing designing AI-powered marketing tools for sellers.
+                      I've also reimagined checkout flows at Slack, built design systems at Equinox, and worked with
+                      clients like the Obama Foundation, The New York Post, Mailchimp, and Goldman Sachs.
                     </p>
 
                     <p>
@@ -87,31 +101,21 @@ export default function About() {
                     </p>
 
                     <p className="pt-4">
-                      <Link href="mailto:hi@liztan.com" className="text-primary hover:underline font-mono">
+                      <a href="mailto:hi@liztan.com" className="text-primary hover:underline font-mono">
                         Say hi!
-                      </Link>
+                      </a>
                     </p>
-                  </div>
-                </div>
-
-                <div className="md:w-2/5">
-                  <div className="aspect-[3/4] relative sticky top-24 overflow-hidden">
-                    <Image
-                      src="/images/liz-photo.png"
-                      alt="Liz Tan standing in front of a graffiti wall"
-                      fill
-                      className="object-cover"
-                      priority
-                    />
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
 
-            {/* Empty flex space to push footer down */}
-            <div className="flex-1"></div>
-
-            {/* Footer anchored to bottom */}
+      <div className="container mx-auto px-4 md:px-8">
+        <div className="grid grid-cols-12 gap-4">
+          <div className="col-span-12 md:col-span-10 md:col-start-2 px-4 md:px-0">
             <Footer />
           </div>
         </div>
