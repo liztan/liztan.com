@@ -31,13 +31,7 @@ export function AddFriendForm({ onBack, onAddFriend, availableChildren }: AddFri
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (
-      formData.name &&
-      formData.parentName &&
-      formData.parentPhone &&
-      formData.location &&
-      selectedChildren.length > 0
-    ) {
+    if (formData.name && selectedChildren.length > 0) {
       const newFriend = {
         ...formData,
       }
@@ -100,7 +94,7 @@ export function AddFriendForm({ onBack, onAddFriend, availableChildren }: AddFri
 
                 <div>
                   <Label htmlFor="parentName" className="text-sm font-medium text-card-foreground">
-                    Parent Name
+                    Parent Name (Optional)
                   </Label>
                   <Input
                     id="parentName"
@@ -108,13 +102,12 @@ export function AddFriendForm({ onBack, onAddFriend, availableChildren }: AddFri
                     onChange={(e) => setFormData((prev) => ({ ...prev, parentName: e.target.value }))}
                     placeholder="Parent's name"
                     className="mt-1 rounded-xl border-2 focus:border-primary/50"
-                    required
                   />
                 </div>
 
                 <div>
                   <Label htmlFor="parentPhone" className="text-sm font-medium text-card-foreground">
-                    Parent Phone
+                    Parent Phone (Optional)
                   </Label>
                   <Input
                     id="parentPhone"
@@ -122,13 +115,12 @@ export function AddFriendForm({ onBack, onAddFriend, availableChildren }: AddFri
                     onChange={(e) => setFormData((prev) => ({ ...prev, parentPhone: e.target.value }))}
                     placeholder="Phone number"
                     className="mt-1 rounded-xl border-2 focus:border-primary/50"
-                    required
                   />
                 </div>
 
                 <div>
                   <Label htmlFor="location" className="text-sm font-medium text-card-foreground">
-                    Location
+                    Location (Optional)
                   </Label>
                   <Input
                     id="location"
@@ -136,7 +128,6 @@ export function AddFriendForm({ onBack, onAddFriend, availableChildren }: AddFri
                     onChange={(e) => setFormData((prev) => ({ ...prev, location: e.target.value }))}
                     placeholder="Neighborhood or area"
                     className="mt-1 rounded-xl border-2 focus:border-primary/50"
-                    required
                   />
                 </div>
 
@@ -158,13 +149,7 @@ export function AddFriendForm({ onBack, onAddFriend, availableChildren }: AddFri
               <Button
                 type="submit"
                 className="w-full h-12 text-lg font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
-                disabled={
-                  !formData.name ||
-                  !formData.parentName ||
-                  !formData.parentPhone ||
-                  !formData.location ||
-                  selectedChildren.length === 0
-                }
+                disabled={!formData.name || selectedChildren.length === 0}
               >
                 Add Friend
               </Button>
