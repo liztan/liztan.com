@@ -1,197 +1,81 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@custom-variant dark (&:is(.dark *));
+@layer base {
+  :root {
+    /* Warm white background */
+    --background: 30 30% 99%;
+    --foreground: 30 10% 7%;
 
-/* Ellsworth Kelly-inspired: black and white UI with geometric color accents */
-:root {
-  --background: oklch(0.98 0 0);
-  --foreground: oklch(0.09 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.09 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.09 0 0);
-  --primary: oklch(0.09 0 0);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0 0);
-  --secondary-foreground: oklch(0.09 0 0);
-  --muted: oklch(0.96 0 0);
-  --muted-foreground: oklch(0.45 0 0);
-  --accent: oklch(0.95 0 0);
-  --accent-foreground: oklch(0.09 0 0);
-  --destructive: oklch(0.5 0.22 29);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.9 0 0);
-  --input: oklch(0.96 0 0);
-  --ring: oklch(0.09 0 0);
-  --radius: 0.75rem;
+    --card: 30 30% 100%;
+    --card-foreground: 30 10% 7%;
+    --popover: 30 30% 100%;
+    --popover-foreground: 30 10% 7%;
 
-  /* Geometric color accents inspired by Ellsworth Kelly */
-  --kelly-red: oklch(0.55 0.22 29);
-  --kelly-blue: oklch(0.45 0.15 264);
-  --kelly-yellow: oklch(0.85 0.15 85);
-  --kelly-green: oklch(0.55 0.15 145);
-  --kelly-orange: oklch(0.65 0.18 45);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
+    /* Adjusted accent color for better contrast with warm background */
+    --primary: 15 100% 50%;
+    --primary-foreground: 30 30% 99%;
 
-.dark {
-  --background: oklch(0.09 0 0);
-  --foreground: oklch(0.98 0 0);
-  --card: oklch(0.12 0 0);
-  --card-foreground: oklch(0.98 0 0);
-  --popover: oklch(0.12 0 0);
-  --popover-foreground: oklch(0.98 0 0);
-  --primary: oklch(0.98 0 0);
-  --primary-foreground: oklch(0.09 0 0);
-  --secondary: oklch(0.15 0 0);
-  --secondary-foreground: oklch(0.98 0 0);
-  --muted: oklch(0.15 0 0);
-  --muted-foreground: oklch(0.6 0 0);
-  --accent: oklch(0.15 0 0);
-  --accent-foreground: oklch(0.98 0 0);
-  --destructive: oklch(0.5 0.22 29);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.2 0 0);
-  --input: oklch(0.15 0 0);
-  --ring: oklch(0.98 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
-}
+    --secondary: 30 30% 96%;
+    --secondary-foreground: 30 10% 7%;
+    --muted: 30 30% 96%;
+    --muted-foreground: 30 10% 40%;
+    --accent: 30 30% 96%;
+    --accent-foreground: 30 10% 7%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 30 30% 99%;
+    --border: 30 30% 90%;
+    --input: 30 30% 90%;
+    --ring: 15 100% 50%;
+    --radius: 0rem;
+  }
 
-@theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-kelly-red: var(--kelly-red);
-  --color-kelly-blue: var(--kelly-blue);
-  --color-kelly-yellow: var(--kelly-yellow);
-  --color-kelly-green: var(--kelly-green);
-  --color-kelly-orange: var(--kelly-orange);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  .dark {
+    --background: 30 10% 7%;
+    --foreground: 30 30% 99%;
+    --card: 30 10% 7%;
+    --card-foreground: 30 30% 99%;
+    --popover: 30 10% 7%;
+    --popover-foreground: 30 30% 99%;
+    --primary: 15 100% 50%;
+    --primary-foreground: 30 10% 7%;
+    --secondary: 30 10% 15%;
+    --secondary-foreground: 30 30% 99%;
+    --muted: 30 10% 15%;
+    --muted-foreground: 30 30% 70%;
+    --accent: 30 10% 15%;
+    --accent-foreground: 30 30% 99%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 30 30% 99%;
+    --border: 30 10% 20%;
+    --input: 30 10% 20%;
+    --ring: 15 100% 50%;
+  }
 }
 
 @layer base {
   * {
-    @apply outline-ring/50;
+    @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans;
-    position: relative;
-    overflow-x: hidden;
+    @apply bg-background text-foreground;
+    font-family: var(--font-manrope);
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
-
-  /* Geometric color blocks in background inspired by Ellsworth Kelly */
-  body::before {
-    content: "";
-    position: fixed;
-    top: 10%;
-    right: 5%;
-    width: 35%;
-    height: 45%;
-    background: var(--kelly-red);
-    opacity: 0.5;
-    border-radius: 50% 0 50% 0;
-    z-index: 0;
-    pointer-events: none;
-  }
-
-  body::after {
-    content: "";
-    position: fixed;
-    bottom: 10%;
-    left: 5%;
-    width: 40%;
-    height: 50%;
-    background: var(--kelly-blue);
-    opacity: 0.45;
-    border-radius: 0 50% 0 50%;
-    z-index: 0;
-    pointer-events: none;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .font-mono {
+    font-family: var(--font-space-mono);
   }
 }
 
-/* Additional geometric shapes for Kelly-inspired background */
-.geometric-accent-1 {
-  position: fixed;
-  top: 40%;
-  left: 10%;
-  width: 25%;
-  height: 30%;
-  background: var(--kelly-yellow);
-  opacity: 0.45;
-  border-radius: 50%;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.geometric-accent-2 {
-  position: fixed;
-  bottom: 20%;
-  right: 15%;
-  width: 28%;
-  height: 35%;
-  background: var(--kelly-green);
-  opacity: 0.4;
-  border-radius: 0;
-  transform: rotate(45deg);
-  z-index: 0;
-  pointer-events: none;
+@layer utilities {
+  .writing-vertical {
+    writing-mode: vertical-rl;
+  }
 }
