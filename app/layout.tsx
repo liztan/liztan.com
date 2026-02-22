@@ -1,13 +1,33 @@
-import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
-import { Analytics } from '@vercel/analytics/next'
-import './globals.css'
+import type React from "react"
+import type { Metadata } from "next"
+import { Space_Mono, Manrope } from "next/font/google"
+import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeToggle } from "@/components/theme-toggle"
+import { Analytics } from "@vercel/analytics/react"
+import { Suspense } from "react"
+
+// Space Mono for headings and accents
+const spaceMono = Space_Mono({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-space-mono",
+})
+
+// Manrope for body text
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+})
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
-  generator: 'v0.app',
+  title: "Liz Tan - Designer",
+  description: "Strategic designer helping businesses connect with their customers",
+  robots: {
+    index: true,
+    follow: true,
+  },
+    generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -16,10 +36,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        {children}
-        <Analytics />
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${spaceMono.variable} ${manrope.variable} font-sans`}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
+          <ThemeToggle />
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   )
