@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Image from "next/image"
 
 interface DocumentationCardProps {
   isHovered?: boolean
@@ -59,11 +58,10 @@ export default function DocumentationCard({
             opacity: isHovered ? 0 : 1,
           }}
         >
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/images/mailchimp-logo-light.svg"
             alt="Mailchimp"
-            width={48}
-            height={50}
             className="w-12 h-12"
           />
         </div>
@@ -75,11 +73,10 @@ export default function DocumentationCard({
             opacity: isHovered ? 0 : 1,
           }}
         >
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             src="/images/mailchimp-logo-dark.svg"
             alt="Mailchimp"
-            width={48}
-            height={50}
             className="w-12 h-12"
           />
         </div>
