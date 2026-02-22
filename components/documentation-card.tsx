@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { MailchimpLogo } from "./mailchimp-logo"
 
 interface DocumentationCardProps {
   isHovered?: boolean
@@ -51,36 +52,14 @@ export default function DocumentationCard({
       }}
     >
       <div className="relative flex items-center justify-center h-full">
-        {/* Mailchimp Logo - Light mode */}
+        {/* Mailchimp Logo */}
         <div
-          className="absolute transition-all duration-500 ease-out dark:hidden"
+          className="absolute transition-all duration-500 ease-out"
           style={{
             opacity: isHovered ? 0 : 1,
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/mailchimp-logo-light.svg"
-            alt="Mailchimp"
-            width={48}
-            height={48}
-          />
-        </div>
-
-        {/* Mailchimp Logo - Dark mode */}
-        <div
-          className="absolute transition-all duration-500 ease-out hidden dark:block"
-          style={{
-            opacity: isHovered ? 0 : 1,
-          }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/mailchimp-logo-dark.svg"
-            alt="Mailchimp"
-            width={48}
-            height={48}
-          />
+          <MailchimpLogo />
         </div>
 
         {/* Morphing shape - circle transition */}
