@@ -1,6 +1,8 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useTheme } from "next-themes"
+import Image from "next/image"
 
 interface DocumentationCardProps {
   isHovered?: boolean
@@ -13,6 +15,7 @@ export default function DocumentationCard({
   onMouseEnter,
   onMouseLeave,
 }: DocumentationCardProps) {
+  const { resolvedTheme } = useTheme()
   const [internalHover, setInternalHover] = useState(false)
   const [animationStage, setAnimationStage] = useState(0) // 0: logo, 1: circle, 2: scattered shapes, 3: organized grid
 
@@ -58,6 +61,17 @@ export default function DocumentationCard({
             opacity: isHovered ? 0 : 1,
           }}
         >
+          <Image
+            src={resolvedTheme === 'dark' ? '/images/mailchimp-logo-dark.svg' : '/images/mailchimp-logo.svg'}
+            alt="Mailchimp"
+            width={48}
+            height={50}
+            className="w-12 h-12"
+          />
+        </div>
+
+        {/* Hidden inline SVG kept for animation reference only */}
+        <div className="hidden">
           <svg
             width="48"
             height="50"
