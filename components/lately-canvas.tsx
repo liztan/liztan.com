@@ -370,8 +370,8 @@ export function LatelyCanvas({ items }: Props) {
       const mInfluence = Math.max(0, 1 - mDist / 80)
 
       const finalRadius = breathRadius + mInfluence * 1.5
-      const alpha = 0.22 + breathWave * 0.04 + mInfluence * 0.3
-      const grey = Math.round(120 + mInfluence * 80 + breathWave * 15)
+      const alpha = 0.38 + breathWave * 0.05 + mInfluence * 0.3
+      const grey = Math.round(100 + mInfluence * 80 + breathWave * 15)
 
       ctx.beginPath()
       ctx.arc(dot.x, dot.y, Math.max(0.2, finalRadius), 0, Math.PI * 2)
@@ -395,7 +395,7 @@ export function LatelyCanvas({ items }: Props) {
     const isThinking = thinkingRef.current
     // Label always stays at the same position, slightly above center
     const labelY = cy - labelGap
-    ctx.fillStyle = "rgba(100, 100, 100, 0.4)"
+    ctx.fillStyle = "rgba(80, 80, 80, 0.55)"
     ctx.fillText("MUSINGS LATELY", cx, labelY)
 
     // Measure label for clearing
@@ -416,7 +416,7 @@ export function LatelyCanvas({ items }: Props) {
       for (let d = 0; d < 3; d++) {
         const dotDelay = d * 0.3
         const dotAlpha = elapsed > dotDelay
-          ? Math.min(0.22, (elapsed - dotDelay) * 0.4)
+          ? Math.min(0.38, (elapsed - dotDelay) * 0.6)
           : 0
         // Subtle breath matching the grid
         const breathWave = elapsed > dotDelay
@@ -465,7 +465,7 @@ export function LatelyCanvas({ items }: Props) {
       for (let l = 0; l < layout.lines.length; l++) {
         const lw = ctx.measureText(layout.lines[l]).width
         if (lw > widestLine) widestLine = lw
-        ctx.fillStyle = `rgba(100, 100, 100, ${tAlpha * 0.4})`
+        ctx.fillStyle = `rgba(80, 80, 80, ${tAlpha * 0.55})`
         ctx.fillText(
           layout.lines[l],
           cx,
