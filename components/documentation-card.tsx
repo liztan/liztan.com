@@ -62,7 +62,8 @@ export default function DocumentationCard({
           <img
             src="/images/mailchimp-logo-light.svg"
             alt="Mailchimp"
-            className="w-12 h-12"
+            width={48}
+            height={48}
           />
         </div>
 
@@ -77,7 +78,8 @@ export default function DocumentationCard({
           <img
             src="/images/mailchimp-logo-dark.svg"
             alt="Mailchimp"
-            className="w-12 h-12"
+            width={48}
+            height={48}
           />
         </div>
 
